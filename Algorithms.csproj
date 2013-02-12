@@ -39,9 +39,20 @@
     <Compile Include="Sorting\HeapSort.cs" />
     <Compile Include="Sorting\MergeSort.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
+    <Compile Include="Trees\Node.cs" />
+    <Compile Include="Trees\AATree.cs" />
+    <Compile Include="Trees\BSTRee.cs" />
+    <Compile Include="HashTable\HTable.cs" />
+    <Compile Include="TOPCODER\BinaryCode.cs" />
+    <Compile Include="TOPCODER\Lottery.cs" />
+    <Compile Include="TOPCODER\Bonuses.cs" />
+    <Compile Include="TOPCODER\ImageDithering.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Sorting\" />
+    <Folder Include="Trees\" />
+    <Folder Include="HashTable\" />
+    <Folder Include="TOPCODER\" />
   </ItemGroup>
 </Project>

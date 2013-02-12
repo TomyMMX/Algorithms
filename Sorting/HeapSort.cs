@@ -11,7 +11,7 @@ namespace Algorithms
 		// number of elements in array
 		private int x;
 
-		public HeapSort (int[] input, int noElements)
+		public HeapSort (int[] input, int noElements, bool what)
 		{
 			Stopwatch stw=new Stopwatch();
 
@@ -19,7 +19,7 @@ namespace Algorithms
 			x = noElements;
 
 			stw.Start();
-			sortArray();
+			sortArray2();
 			stw.Stop();
 
 			/*foreach (var e in output) {
@@ -33,15 +33,15 @@ namespace Algorithms
 		}
 
 		 
-		// Heap Sort Algorithm
-		public void sortArray()
+	
+		public void sortArray2()
 		{
 		  int i;
 		  int temp;
 		 
 		  for( i = (x/2)-1; i >= 0; i-- )
 		  {
-		    siftDown( i, x );
+		    jsw_do_heap(a, i, x);
 		  }
 		 
 		  for( i = x-1; i >= 1; i-- )
@@ -49,38 +49,31 @@ namespace Algorithms
 		    temp = a[0];
 		    a[0] = a[i];
 		    a[i] = temp;
-		    siftDown( 0, i-1 );
+		    jsw_do_heap(a, 0, i-1);
 		  }
 		}
+			 
+
+		 void jsw_do_heap ( int [] a, int i, int n )
+		 {
+		    int k = i * 2 + 1;
+		    int save = a[i];
+		  
+		    while ( k < n ) {
+		      if ( k + 1 < n && a[k] < a[k + 1] )
+		        ++k;
+		  
+		     if ( save >= a[k] )
+		       break;
 		 
-		public void siftDown( int root, int bottom )
-		{
-		  bool done = false;
-		  int maxChild;
-		  int temp;
+		     a[i] = a[k];
+		     i = k;
+		     k = i * 2 + 1;
+				//k=++i * 2 + 1;
+		   }
 		 
-		  while( (root*2 <= bottom) && (!done) )
-		  {
-		    if( root*2 == bottom )
-		      maxChild = root * 2;
-		    else if( a[root * 2] > a[root * 2 + 1] )
-		      maxChild = root * 2;
-		    else
-		      maxChild = root * 2 + 1;
-		 
-		    if( a[root] < a[maxChild] )
-		    {
-		      temp = a[root];
-		      a[root] = a[maxChild];
-		      a[maxChild] = temp;
-		      root = maxChild;
-		    }
-		    else
-		    {
-		      done = true;
-		    }
-		  }
-		}
+		   a[i] = save;
+		 }
 	}
 }
 
